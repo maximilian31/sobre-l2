@@ -1,0 +1,47 @@
+/******************************************************************************
+CALCULADOR DE BLESSED
+*******************************************************************************/
+#include <iostream>
+#include <string>
+using namespace std;
+
+/*
+Declaro las variables
+*/
+int adena, spiritOre, cryD;
+int porUna, totalSpirit, totalCry;
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+void calculoDeUnCraft()
+{
+    porUna = (cryD * 2) + (spiritOre * 8); // Esto calcula el precio de 1 crafteada (100 blessed)
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void calculoTotal()
+{
+    totalCry = (adena * 2) / porUna;
+    totalSpirit = (adena * 8) / porUna;
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+int main()
+{
+    cout << "Cuanta adena tenes: " << endl;
+    cin >> adena;
+    cout << "Ahora pone el precio de los spirit ore:" << endl;
+    cin >> spiritOre;
+    cout << "Y por ultimo, pone el precio q compraste los cry D:" << endl;
+    cin >> cryD;
+
+    calculoDeUnCraft(); // Asegúrate de llamar esta función antes de usar "porUna"
+    calculoTotal();
+
+    cout << "Para gastar toda la adena y que te quede perfecto el craft tenes que comprar: \n";
+    cout << "Cristales D: " << totalCry << endl;
+    cout << "Spirit Ore: " << totalSpirit << endl;
+
+    return 0; // Buena práctica incluir return 0 en el main
+}
