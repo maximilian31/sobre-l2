@@ -23,7 +23,15 @@ void calculoDeUnCraft()
 void calculoTotal()
 {
     totalCry = (adena * 2) / porUna;
+    if (totalCry % 2 != 0)
+    {
+        totalCry--;  // Si no es un múltiplo de 2, sumamos 1 para hacerlo par
+    }
     totalSpirit = (adena * 8) / porUna;
+    if (totalSpirit % 8 != 0)
+    {
+        totalSpirit -= (totalSpirit % 8);  // Restamos para llegar al múltiplo de 8 anterior
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
