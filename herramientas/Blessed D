@@ -1,55 +1,196 @@
-/******************************************************************************
-CALCULADOR DE BLESSED
-*******************************************************************************/
 #include <iostream>
 #include <string>
 using namespace std;
 
-/*
-Declaro las variables
-*/
-int adena, spiritOre, cryD;
-int porUna, totalSpirit, totalCry;
-
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-void calculoDeUnCraft()
+// Variable de la quest de fang
+int rewardfang,totaldeFangs;
+// Variables de las armas
+int vopArma, enriaArma, sinteticArma, mitrilAlloyArma, durableArma;
+int asofeArma,thonsArma,compoundbraindArma,oriharukonArma;
+// Variables de los fangs
+int enriaFang,asofeFang,thonsFang,vopFang,sinteticFang,compoundbraindFang;
+int durableFang,mitrilalloyFang,oriharukonFang;
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//Funciones de los fangs
+void fangs()
 {
-    porUna = (cryD * 2) + (spiritOre * 8); // Esto calcula el precio de 1 crafteada (100 blessed)
+    enriaFang = enriaArma * 12;
+	asofeFang = asofeArma * 6; //fang
+    thonsFang = thonsArma * 6; //fang
+    vopFang = vopArma * 81 / 10; //fang
+    sinteticFang = sinteticArma * 33 / 5;//fang
+    compoundbraindFang = compoundbraindArma * 30 / 10; //fang
+    durableFang = durableArma * 150 / 10;//fang
+    mitrilalloyFang = mitrilAlloyArma * 131 / 10; //fang
+    oriharukonFang = oriharukonArma * 123 / 10;//fang
 }
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-void calculoTotal()
+//Funcion de por cuanto esta la quest de fang
+void porcuantoEsta()
 {
-    totalCry = (adena * 2) / porUna;
-    if (totalCry % 2 != 0)
-    {
-        totalCry--;  // Si no es un múltiplo de 2, sumamos 1 para hacerlo par
+    enriaFang = enriaFang / rewardfang; 
+	asofeFang = asofeFang / rewardfang;
+    thonsFang = thonsFang / rewardfang;
+    vopFang = vopFang / rewardfang;
+    sinteticFang = sinteticFang / rewardfang;
+    compoundbraindFang = compoundbraindFang / rewardfang;
+    durableFang = durableFang / rewardfang;
+    mitrilalloyFang = mitrilalloyFang / rewardfang;
+    oriharukonFang = oriharukonFang / rewardfang;
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void totalFangs()
+{
+    totaldeFangs = 0;
+    totaldeFangs = oriharukonFang + mitrilalloyFang + durableFang + compoundbraindFang + sinteticFang
+    + vopFang + thonsFang + asofeFang + enriaFang;
+    cout << "\n El Total de fangs que necesitas es: " << endl;
+    cout << totaldeFangs;
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void vasANecesitar()
+{
+	if (enriaFang > 0) // Esto es para que no imprima cuando es 0
+	{	
+    	cout << "Para enrias: ";    
+        cout << enriaFang << endl;
     }
-    totalSpirit = (adena * 8) / porUna;
-    if (totalSpirit % 8 != 0)
+	
+	if (asofeFang > 0)
+	{	
+    	cout << "Para asofes: ";    
+        cout << asofeFang << endl;
+    }
+	if (thonsFang > 0)
+	{	
+    	cout << "Para thons: ";    
+        cout << thonsFang << endl;
+    }
+	if (vopFang != 0)
+	{
+	
+    	cout << "Para vop: ";    
+        cout << vopFang << endl;
+    }
+	if (sinteticFang != 0)
+	{	
+    	cout << "Para sintetic: ";    
+        cout << sinteticFang << endl;
+    }
+	if (compoundbraindFang != 0)	
+	{
+    	cout << "Para compound: ";    
+        cout << compoundbraindFang << endl;
+    }
+	if (durableFang != 0)
+	{
+    	cout << "Para durable: ";    
+        cout << durableFang << endl;
+    }
+	if (mitrilalloyFang != 0)
+	{
+    	cout << "Para mitrilalloy: ";    
+        cout << mitrilalloyFang << endl;
+    }
+	if (oriharukonFang > 0)
+	{
+    	cout << "Para oriharukon: ";    
+        cout << oriharukonFang << endl;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/*
+Funciones de armas
+*/
+void arma(string nombre)
+{
+    if (nombre == "am")
     {
-        totalSpirit -= (totalSpirit % 8);  // Restamos para llegar al múltiplo de 8 anterior
+        vopArma = 80;
+        enriaArma = 77;
+        sinteticArma = 154;
+        mitrilAlloyArma = 154;
+        durableArma = 308;
+    }
+    if(nombre == "db")
+    {
+        vopArma = 80;
+        enriaArma = 77;
+        sinteticArma = 75;
+        mitrilAlloyArma = 385;
+        durableArma = 154;
+    }
+    if(nombre == "daga")
+    {
+        vopArma = 80;
+        enriaArma = 132;
+        sinteticArma = 264;
+        mitrilAlloyArma = 264;
+        durableArma = 132;
+    }
+    if(nombre == "hd")
+    {
+        vopArma = 80;
+        enriaArma = 146;
+        sinteticArma = 146;
+        mitrilAlloyArma = 292;
+        durableArma = 146;
+    }
+    if(nombre == "pole")
+    {
+        vopArma = 80;
+        enriaArma = 62;
+        sinteticArma = 124;
+        mitrilAlloyArma = 248;
+        durableArma = 248;
+    }
+    if(nombre == "fb")
+    {
+        vopArma = 80;
+        enriaArma = 132;
+        sinteticArma = 264;
+        mitrilAlloyArma = 292;
+        durableArma = 132;
+    }
+    if(nombre == "garras")
+    {
+        vopArma = 80;
+        enriaArma = 77;
+        sinteticArma = 154;
+        mitrilAlloyArma = 154;
+        durableArma = 308;
     }
 }
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 int main()
 {
-    cout << "Cuanta adena tenes: " << endl;
-    cin >> adena;
-    cout << "Ahora pone el precio de los spirit ore:" << endl;
-    cin >> spiritOre;
-    cout << "Y por ultimo, pone el precio q compraste los cry D:" << endl;
-    cin >> cryD;
-
-    calculoDeUnCraft(); // Asegúrate de llamar esta función antes de usar "porUna"
-    calculoTotal();
-
-    cout << "Para gastar toda la adena y que te quede perfecto el craft tenes que comprar: \n";
-    cout << "Cristales D: " << totalCry << endl;
-    cout << "Spirit Ore: " << totalSpirit << endl;
-
-    return 0; // Buena práctica incluir return 0 en el main
+    string nombreArma;
+    cout << "Ingrese el nombre del arma: " << endl;
+    cout << "Opciones: am/db/daga/hd/pole/fb/garras " << endl;
+    cin >> nombreArma;
+    arma(nombreArma); // Aca va a cargar los valores depende el arma que elija
+    fangs(); // Aca los va a multiplicar y guarda cuantos fangs voy a necesitar
+    // Esto es solo para Armas solo
+    cout << "Por cuanto esta el reward de la quest de fang: " << endl;
+    cin >> rewardfang;
+    porcuantoEsta(); // Aca te calcula cuantos fangs vas a necesitar depende el rate de la quest
+    vasANecesitar();
+    totalFangs();
+    
+    
+    cout << "\n Toca una tecla negrito";
+    getchar(); // Espera a que el usuario presione una tecla
+    getchar(); // Espera a que el usuario presione Enter
+    
+    return 0;
 }
+
